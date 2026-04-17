@@ -56,7 +56,7 @@ blockquote{margin:10px 0;padding:12px 14px;background:#0d1a2e;border-radius:8px;
 .feedback-banner.info{background:#0d1528;border:1px solid #2a3a6a;color:#a0c0ff}
 .retry-btn{background:#e63946;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700;margin-top:8px;display:inline-block;-webkit-tap-highlight-color:transparent}
 
-/* Choices — no hover persistence on mobile */
+/* Choices */
 .choices{display:flex;flex-direction:column;gap:7px;margin-top:2px}
 .choice-btn{background:#0f3460;border:1px solid #1a4a8a;color:#d0e4ff;border-radius:9px;padding:12px 15px;font-size:14px;line-height:1.5;cursor:pointer;text-align:left;transition:background .15s,border-color .15s;display:flex;align-items:flex-start;gap:10px;-webkit-tap-highlight-color:transparent;width:100%}
 .choice-btn:focus{outline:none}
@@ -85,7 +85,7 @@ blockquote{margin:10px 0;padding:12px 14px;background:#0d1a2e;border-radius:8px;
 .insight-item{font-size:12px;color:#8a9ab8;margin-bottom:5px;display:flex;gap:7px;line-height:1.5}
 .share-box{background:#0d1625;border-radius:9px;padding:13px 16px;margin-bottom:16px;border:1px solid #1a2a4a}
 .share-text{font-size:12px;color:#667;margin-bottom:8px}
-.share-result{font-size:12px;color:#c0d0e8;font-family:monospace;background:#070e1a;padding:8px 10px;border-radius:6px;word-break:break-all;margin-bottom:8px;line-height:1.6}
+.share-result{font-size:12px;color:#c0d0e8;font-family:'Segoe UI',Arial,sans-serif;background:#070e1a;padding:8px 10px;border-radius:6px;word-break:normal;overflow-wrap:break-word;white-space:normal;margin-bottom:8px;line-height:1.6}
 .copy-btn{background:#1a3a6a;color:#a0c0ff;border:1px solid #2a5a9a;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
 .win-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .btn-primary{background:#e63946;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -157,8 +157,8 @@ blockquote{margin:10px 0;padding:12px 14px;background:#0d1a2e;border-radius:8px;
 </div>
 
 <script>
-const SUPA_URL='https://dkpggyccoidmmysqfqmr.supabase.co';
-const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrcGdneWNjb2lkbW15c3FmcW1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxODg5MDcsImV4cCI6MjA5MDc2NDkwN30.Jk5hjn64xE128UfrTFtLgJxzdc9uc1wc_uQlmVb22M8';
+const SUPA_URL='https://exqpnofliridwdrcyien.supabase.co';
+const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4cXBub2ZsaXJpZHdkcmN5aWVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MDYwODgsImV4cCI6MjA5MTk4MjA4OH0.xVkvptHGnTDAoQ288uQiAHSct2qpREMzY-2dRdGwt8M';
 const SESSION_ID='sess_'+Math.random().toString(36).slice(2,10)+'_'+Date.now();
 let playerNameGlobal='Anonymous';
 let attemptCounter={};
@@ -218,9 +218,9 @@ const STEPS=[
   <blockquote>"<strong>Dar Al-Wahat Developments</strong>, a construction group based in Abu Dhabi, has acquired three boutique hotel chains across the UAE. Their Contracts Director, <strong>Faisal Al-Mansoori</strong>, confirmed full refurbishments are planned within 3 years."</blockquote>
   <p>Layla has a first-class prospect — and a name. <strong>What should she do first?</strong></p>`,
   choices:[
-    {label:'A',text:'Do more research on Al-Nakheel Developments before reaching out.',next:'research_first',correct:true},
+    {label:'A',text:'Do more research on Dar Al-Wahat Developments before reaching out.',next:'research_first',correct:true},
     {label:'B',text:'Telephone Faisal Al-Mansoori to get an appointment immediately.',next:'call_faisal',correct:false},
-    {label:'C',text:'Make a cold call directly to Al-Nakheel\'s Abu Dhabi office.',next:'cold_call_faisal',correct:false}
+    {label:'C',text:'Make a cold call directly to Dar Al-Wahat\'s Abu Dhabi office.',next:'cold_call_faisal',correct:false}
   ],progress:12,label:'Identifying the opportunity'},
   {id:'research_first',tag:'✔ Good Thinking',title:'Researching Dar Al-Wahat Developments',
   body:`<p>Layla digs deeper and discovers Dar Al-Wahat is a holding company. Its subsidiaries include <strong style="color:#f4a261">Al-Mansoori Interiors LLC</strong>, run by <strong>Mrs Rania Al-Mansoori</strong> — who specifies all lighting for the hotel projects. Faisal is Contracts Director but doesn't choose the fittings.</p>
@@ -307,7 +307,7 @@ const OUTCOMES={
   cold_call_faisal:{text:'A cold call without preparation is premature. Layla doesn\'t yet know who the real decision maker is.',redirect:'intro'},
   wrong_order:{text:'Bright Star MEP will redirect Layla straight back to Mrs Al-Mansoori. The specifier always comes first.',redirect:'research_first'},
   faisal_only:{text:'Faisal is Contracts Director but doesn\'t choose the fittings. He\'d refer Layla without influencing the product decision.',redirect:'research_first'},
-  rania_only:{type:'info',text:'Close — but Layla should plan to see Mrs Al-Mansoori AND follow up with Bright Star MEP. The specifier recommends; the contractor places the order.',redirect:'rania_first'},
+  rania_only:{type:'info',text:'Almost — but Layla needs both contacts. Mrs Al-Mansoori specifies the fittings, but Bright Star MEP places the actual order. Plan to visit both.',redirect:'research_first'},
   call_electricity:{text:'Mrs Al-Mansoori is an interior designer. Electricity costs aren\'t her world — design and aesthetics are. Wrong hook.',redirect:'rania_first'},
   call_personal:{text:'Implying a "personal matter" is misleading. Mrs Al-Mansoori would feel deceived and refuse further contact.',redirect:'rania_first'},
   call_pa:{text:'Mrs Al-Mansoori doesn\'t have a PA — the receptionist confirms this. The call stalls.',redirect:'rania_first'},
@@ -440,7 +440,7 @@ function showWin(){
     <div class="win-screen">
       <div class="win-icon">🎯</div>
       <div class="win-title">Deal Secured!</div>
-      <div class="win-sub">Layla landed the Al-Nakheel Hotels contract.<br>LumiTech Gulf wins the project.</div>
+      <div class="win-sub">Layla landed the Dar Al-Wahat Hotels contract.<br>LumiTech Gulf wins the project.</div>
       <div class="stats-grid">
         <div class="stat-card"><div class="stat-val">${fmt(elapsed)}</div><div class="stat-label">Time to close</div></div>
         <div class="stat-card"><div class="stat-val" style="color:${effColor(eff)}">${eff}%</div><div class="stat-label">Decision accuracy</div></div>
